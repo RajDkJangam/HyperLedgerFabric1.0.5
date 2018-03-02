@@ -65,14 +65,14 @@ client:
 channels:
   chainhero:
     orderers:
-      - orderer.hf.chainhero.io
+      - orderer.servntire.com
     peers:
-      peer0.org1.hf.chainhero.io:
+      peer0.org1.servntire.com:
         endorsingPeer: true
         chaincodeQuery: true
         ledgerQuery: true
         eventSource: true
-      peer1.org1.hf.chainhero.io:
+      peer1.org1.servntire.com:
         endorsingPeer: true
         chaincodeQuery: true
         ledgerQuery: true
@@ -85,51 +85,51 @@ channels:
 # list of participating organizations in this network
 organizations:
   Org1:
-    mspid: org1.hf.chainhero.io
-    cryptoPath:  "peerOrganizations/org1.hf.chainhero.io/users/{userName}@org1.hf.chainhero.io/msp"
+    mspid: org1.servntire.com
+    cryptoPath:  "peerOrganizations/org1.servntire.com/users/{userName}@org1.servntire.com/msp"
     peers:
-      - peer0.org1.hf.chainhero.io
-      - peer1.org1.hf.chainhero.io
+      - peer0.org1.servntire.com
+      - peer1.org1.servntire.com
     certificateAuthorities:
-      - ca.org1.hf.chainhero.io
+      - ca.org1.servntire.com
 
 # List of orderers to send transaction and channel create/update requests to. For the time being only one orderer is needed.
 orderers:
-  orderer.hf.chainhero.io:
+  orderer.servntire.com:
     url: grpcs://localhost:7050
     grpcOptions:
-      ssl-target-name-override: orderer.hf.chainhero.io
+      ssl-target-name-override: orderer.servntire.com
       grpc-max-send-message-length: 15
     tlsCACerts:
-      path: "${GOPATH}/src/github.com/chainHero/heroes-service/fixtures/crypto-config/ordererOrganizations/hf.chainhero.io/tlsca/tlsca.hf.chainhero.io-cert.pem"
+      path: "${GOPATH}/src/github.com/chainHero/heroes-service/fixtures/crypto-config/ordererOrganizations/servntire.com/tlsca/tlsca.servntire.com-cert.pem"
 
 # List of peers to send various requests to, including endorsement, query and event listener registration.
 peers:
-  peer0.org1.hf.chainhero.io:
+  peer0.org1.servntire.com:
     url: grpcs://localhost:7051
     eventUrl: grpcs://localhost:7053
     grpcOptions:
-      ssl-target-name-override: peer0.org1.hf.chainhero.io
+      ssl-target-name-override: peer0.org1.servntire.com
       grpc.http2.keepalive_time: 15
     tlsCACerts:
-      path: "${GOPATH}/src/github.com/chainHero/heroes-service/fixtures/crypto-config/peerOrganizations/org1.hf.chainhero.io/tlsca/tlsca.org1.hf.chainhero.io-cert.pem"
+      path: "${GOPATH}/src/github.com/chainHero/heroes-service/fixtures/crypto-config/peerOrganizations/org1.servntire.com/tlsca/tlsca.org1.servntire.com-cert.pem"
 
-  peer1.org1.hf.chainhero.io:
+  peer1.org1.servntire.com:
     url: grpcs://localhost:8051
     eventUrl: grpcs://localhost:8053
     grpcOptions:
-      ssl-target-name-override: peer1.org1.hf.chainhero.io
+      ssl-target-name-override: peer1.org1.servntire.com
       grpc.http2.keepalive_time: 15
     tlsCACerts:
-      path: "${GOPATH}/src/github.com/chainHero/heroes-service/fixtures/crypto-config/peerOrganizations/org1.hf.chainhero.io/tlsca/tlsca.org1.hf.chainhero.io-cert.pem"
+      path: "${GOPATH}/src/github.com/chainHero/heroes-service/fixtures/crypto-config/peerOrganizations/org1.servntire.com/tlsca/tlsca.org1.servntire.com-cert.pem"
 
 
 certificateAuthorities:
-  ca.org1.hf.chainhero.io:
+  ca.org1.servntire.com:
     url: https://localhost:7054
     httpOptions:
       verify: false
     registrar:
       enrollId: admin
       enrollSecret: adminpw
-    caName: ca.org1.hf.chainhero.io
+    caName: ca.org1.servntire.com
