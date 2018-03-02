@@ -3,21 +3,25 @@ package main
 import (
 	"fmt"
 	"os"
-
-	"github.com/servntire/car-ownership/blockchain"
+	"github.com/chainHero/heroes-service/blockchain"
+	"github.com/chainHero/heroes-service/web/controllers"
+	"github.com/chainHero/heroes-service/web"
 )
 
 func main() {
 	// Definition of the Fabric SDK properties
 	fSetup := blockchain.FabricSetup{
 		// Channel parameters
-		ChannelID:     "fabcar",
-		ChannelConfig: "" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/channel-artifacts/",
+		ChannelID:        	"chainhero",
+		ChannelConfig:    	"" + os.Getenv("GOPATH") + "/src/github.com/chainHero/heroes-service/fixtures/artifacts/",
 
 		// Chaincode parameters
-		OrgAdmin:   "Admin",
-		OrgName:    "Org1",
-		ConfigFile: "config.yaml",
+		ChainCodeID:      	"heroes-service",
+		ChaincodeGoPath:  	os.Getenv("GOPATH"),
+		ChaincodePath:    	"github.com/chainHero/heroes-service/chaincode/",
+		OrgAdmin:			"Admin",
+		OrgName:			"Org1",
+		ConfigFile:			"config.yaml",
 	}
 
 	// Initialization of the Fabric SDK from the previously set properties
@@ -25,4 +29,17 @@ func main() {
 	if err != nil {
 		fmt.Printf("Unable to initialize the Fabric SDK: %v\n", err)
 	}
+
+	// Install and instantiate the chaincode
+	err = fSetup.InstallAndInstantiateCC()
+	if err != nil {
+		fmt.Printf("Unable to install and instantiate the chaincode: %v\n", err)
+	}
+
+	// Launch the web application listening
+	app := &controllers.Application{
+		Fabric: &fSetup,
+	}
+	web.Serve(app)
+
 }
