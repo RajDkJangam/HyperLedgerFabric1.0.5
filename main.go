@@ -11,8 +11,8 @@ func main() {
 	// Definition of the Fabric SDK properties
 	fSetup := blockchain.FabricSetup{
 		// Channel parameters
-		ChannelID:     "chainhero",
-		ChannelConfig: "" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/artifacts/",
+		ChannelID:     "fabcar",
+		ChannelConfig: "" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/channel-artifacts/",
 
 		// Chaincode parameters
 		OrgAdmin:   "Admin",
