@@ -2,14 +2,15 @@ package blockchain
 
 import (
 	"fmt"
-	"github.com/hyperledger/fabric-sdk-go/pkg/fabsdk"
-	"github.com/hyperledger/fabric-sdk-go/pkg/config"
 	"time"
-	packager "github.com/hyperledger/fabric-sdk-go/pkg/fabric-client/ccpackager/gopackager"
-	resmgmt "github.com/hyperledger/fabric-sdk-go/api/apitxn/resmgmtclient"
-	"github.com/hyperledger/fabric-sdk-go/third_party/github.com/hyperledger/fabric/common/cauthdsl"
-	chmgmt "github.com/hyperledger/fabric-sdk-go/api/apitxn/chmgmtclient"
+
 	"github.com/hyperledger/fabric-sdk-go/api/apitxn/chclient"
+	chmgmt "github.com/hyperledger/fabric-sdk-go/api/apitxn/chmgmtclient"
+	resmgmt "github.com/hyperledger/fabric-sdk-go/api/apitxn/resmgmtclient"
+	"github.com/hyperledger/fabric-sdk-go/pkg/config"
+	packager "github.com/hyperledger/fabric-sdk-go/pkg/fabric-client/ccpackager/gopackager"
+	"github.com/hyperledger/fabric-sdk-go/pkg/fabsdk"
+	"github.com/hyperledger/fabric-sdk-go/third_party/github.com/hyperledger/fabric/common/cauthdsl"
 )
 
 // FabricSetup implementation
@@ -25,8 +26,8 @@ type FabricSetup struct {
 	OrgAdmin        string
 	OrgName         string
 	client          chclient.ChannelClient
-	admin 			resmgmt.ResourceMgmtClient
-	sdk 			*fabsdk.FabricSDK
+	admin           resmgmt.ResourceMgmtClient
+	sdk             *fabsdk.FabricSDK
 }
 
 // Initialize reads the configuration file and sets up the client, chain and event hub
@@ -60,7 +61,7 @@ func (setup *FabricSetup) Initialize() error {
 	orgAdminUser := session
 
 	// Create channel
-	req := chmgmt.SaveChannelRequest{ChannelID: setup.ChannelID, ChannelConfig: setup.ChannelConfig + "chainhero.channel.tx", SigningIdentity: orgAdminUser}
+	req := chmgmt.SaveChannelRequest{ChannelID: setup.ChannelID, ChannelConfig: setup.ChannelConfig + "channel.tx", SigningIdentity: orgAdminUser}
 	if err = chMgmtClient.SaveChannel(req); err != nil {
 		return fmt.Errorf("failed to create channel: %v", err)
 	}
@@ -82,7 +83,6 @@ func (setup *FabricSetup) Initialize() error {
 	fmt.Println("Initialization Successful")
 	return nil
 }
-
 
 func (setup *FabricSetup) InstallAndInstantiateCC() error {
 
