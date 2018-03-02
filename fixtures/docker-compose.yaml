@@ -42,10 +42,10 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.org1.servntire.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.servntire.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fixtures/crypto-config/peerOrganizations/org1.servntire.com/ca/bb9c24e80df48f01f2e87d728567fd04a547453197d6fabb303e6d73ca138d9c_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fixtures/crypto-config/peerOrganizations/org1.servntire.com/ca/04856fb7df74b875a204b9bc00fa8e976be29c96c28cee897282c29b2878fe8b_sk
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.servntire.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fixtures/crypto-config/peerOrganizations/org1.servntire.com/ca/bb9c24e80df48f01f2e87d728567fd04a547453197d6fabb303e6d73ca138d9c_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fixtures/crypto-config/peerOrganizations/org1.servntire.com/ca/04856fb7df74b875a204b9bc00fa8e976be29c96c28cee897282c29b2878fe8b_sk
     ports:
       - 7054:7054
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
