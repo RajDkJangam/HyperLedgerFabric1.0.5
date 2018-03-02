@@ -1,7 +1,7 @@
-name: "chainHero-network"
+name: "servntire-network"
 
 # Describe what the target network is/does.
-description: "The network which will host my first blockchain"
+description: "The network which will host Servntire FABCar blockchain"
 
 # Schema version of the content. Used by the SDK to apply the corresponding parsing rules.
 version: 2
