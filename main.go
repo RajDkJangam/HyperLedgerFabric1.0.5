@@ -12,7 +12,7 @@ func main() {
 	fSetup := blockchain.FabricSetup{
 		// Channel parameters
 		ChannelID:     "fabcar",
-		ChannelConfig: "" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/channel-artifacts/",
+		ChannelConfig: "" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/artifacts/",
 
 		// Chaincode parameters
 		OrgAdmin:   "Admin",
