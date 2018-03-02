@@ -63,7 +63,7 @@ client:
 
 
 channels:
-  chainhero:
+  fabcar:
     orderers:
       - orderer.servntire.com
     peers:
