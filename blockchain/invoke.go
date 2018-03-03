@@ -74,7 +74,7 @@ func (setup *FabricSetup) ChangeCarOwner(key, value string) (string, error) {
 	}
 
 	// Create a request (proposal) and send it
-	response, err := setup.client.Execute(chclient.Request{ChaincodeID: setup.ChainCodeID, Fcn: args[0], Args: [][]byte{[]byte(args[1]), []byte(args[2]), []byte(args[3])}, TransientMap: transientDataMap})
+	response, err := setup.client.Execute(chclient.Request{ChaincodeID: setup.ChainCodeID, Fcn: args[0], Args: [][]byte{[]byte(args[0]), []byte(args[1]), []byte(args[2]), []byte(args[3])}, TransientMap: transientDataMap})
 	if err != nil {
 		return "", fmt.Errorf("failed to create car: %v", err)
 	}
@@ -117,7 +117,7 @@ func (setup *FabricSetup) UpdateCarRecord(key, value string) (string, error) {
 	}
 
 	// Create a request (proposal) and send it
-	response, err := setup.client.Execute(chclient.Request{ChaincodeID: setup.ChainCodeID, Fcn: args[0], Args: [][]byte{[]byte(args[1]), []byte(args[2]), []byte(args[3])}, TransientMap: transientDataMap})
+	response, err := setup.client.Execute(chclient.Request{ChaincodeID: setup.ChainCodeID, Fcn: args[0], Args: [][]byte{[]byte(args[0]), []byte(args[1]), []byte(args[2]), []byte(args[3])}, TransientMap: transientDataMap})
 	if err != nil {
 		return "", fmt.Errorf("failed to create car: %v", err)
 	}

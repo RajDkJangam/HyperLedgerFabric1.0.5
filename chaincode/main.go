@@ -116,7 +116,7 @@ func (t *HeroesServiceChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Res
 // query
 // Every readonly functions in the ledger will be here
 func (t *HeroesServiceChaincode) query(stub shim.ChaincodeStubInterface, args []string) pb.Response {
-	fmt.Println("########### CarOwner query ###########")
+	fmt.Println("########### CarOwnership query ###########")
 
 	// Check whether the number of arguments is sufficient
 	if len(args) < 2 {
@@ -173,7 +173,7 @@ func (t *HeroesServiceChaincode) query(stub shim.ChaincodeStubInterface, args []
 // invoke
 // Every functions that read and write in the ledger will be here
 func (t *HeroesServiceChaincode) invoke(stub shim.ChaincodeStubInterface, args []string) pb.Response {
-	fmt.Println("########### HeroesServiceChaincode invoke ###########")
+	fmt.Println("########### CarOwnership invoke ###########")
 
 	if len(args) < 2 {
 		return shim.Error("The number of arguments is insufficient.")
