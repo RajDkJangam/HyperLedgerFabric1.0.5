@@ -85,7 +85,7 @@ channels:
 # list of participating organizations in this network
 organizations:
   Org1:
-    mspid: org1.servntire.com
+    mspid: Org1MSP
     cryptoPath:  "peerOrganizations/org1.servntire.com/users/{userName}@org1.servntire.com/msp"
     peers:
       - peer0.org1.servntire.com
