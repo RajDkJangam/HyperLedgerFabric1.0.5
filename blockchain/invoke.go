@@ -17,7 +17,7 @@ func (setup *FabricSetup) CreateCar(key, value string) (string, error) {
 	args = append(args, key)
 	args = append(args, value)
 
-	eventID := "eventInvoke"
+	eventID := "eventCreateCar"
 
 	// Add data that will be visible in the proposal, like a description of the invoke request
 	transientDataMap := make(map[string][]byte)
@@ -61,7 +61,7 @@ func (setup *FabricSetup) ChangeCarOwner(key, value string) (string, error) {
 	args = append(args, key)
 	args = append(args, value)
 
-	eventID := "eventInvoke"
+	eventID := "eventChangeCarOwner"
 
 	// Add data that will be visible in the proposal, like a description of the invoke request
 	transientDataMap := make(map[string][]byte)
@@ -105,7 +105,7 @@ func (setup *FabricSetup) UpdateCarRecord(key, value string) (string, error) {
 	args = append(args, key)
 	args = append(args, value)
 
-	eventID := "eventInvoke"
+	eventID := "eventUpdateRecords"
 
 	// Add data that will be visible in the proposal, like a description of the invoke request
 	transientDataMap := make(map[string][]byte)
