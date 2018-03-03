@@ -206,6 +206,7 @@ func (t *HeroesServiceChaincode) invoke(stub shim.ChaincodeStubInterface, args [
 	/*
 		@@@ Updating all fields of the reord @@@
 	*/
+	fmt.Println(len(args))
 	if args[1] == "updateRecord" && len(args) == 4 {
 		fmt.Println("Update All")
 		var newCar Car
