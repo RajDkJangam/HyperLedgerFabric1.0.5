@@ -24,7 +24,7 @@ func (setup *FabricSetup) QueryAll() (string, error) {
 }
 
 // QueryOne query the chaincode to get the record of a specific Key
-func (setup *FabricSetup) QueryOne(value string) (string, string error) {
+func (setup *FabricSetup) QueryOne(value string) (string, string, error) {
 
 	// Prepare arguments
 	var args []string
