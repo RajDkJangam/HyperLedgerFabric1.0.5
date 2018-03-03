@@ -24,7 +24,7 @@ func (setup *FabricSetup) QueryAll() (string, error) {
 }
 
 // QueryOne query the chaincode to get the record of a specific Key
-func (setup *FabricSetup) QueryOne(value string) (string, error) {
+func (setup *FabricSetup) QueryOne(value string) (string, string error) {
 
 	// Prepare arguments
 	var args []string
@@ -32,12 +32,12 @@ func (setup *FabricSetup) QueryOne(value string) (string, error) {
 	args = append(args, "queryone")
 	args = append(args, value)
 
-	response, err := setup.client.Query(chclient.Request{ChaincodeID: setup.ChainCodeID, Fcn: args[0], Args: [][]byte{[]byte(args[1]), []byte(args[2])}})
+	response, txID, err := setup.client.Query(chclient.Request{ChaincodeID: setup.ChainCodeID, Fcn: args[0], Args: [][]byte{[]byte(args[1]), []byte(args[2])}})
 	if err != nil {
 		return "", fmt.Errorf("failed to query: %v", err)
 	}
 
-	return string(response.Payload), nil
+	return string(response.Payload), txID, nil
 }
 
 // GetHistoryofCar query the chaincode to get the history of records for a specific Key
