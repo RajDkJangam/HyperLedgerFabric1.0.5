@@ -27,7 +27,7 @@ env-down:
 ##### RUN
 run:
 	@echo "Start app ..."
-	@./heroes-service
+	@./car-ownership
 
 ##### CLEAN
 clean: env-down
