@@ -20,7 +20,7 @@ func main() {
 		ChainCodeID:      "carownership-service",
 		ChaincodeGoPath:  os.Getenv("GOPATH"),
 		ChaincodePath:    "github.com/servntire/car-ownership/chaincode/",
-		ChaincodeVersion: "1.16",
+		ChaincodeVersion: "1.17",
 		OrgAdmin:         "Admin",
 		OrgName:          "Org1",
 		ConfigFile:       "config.yaml",

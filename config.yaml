@@ -11,7 +11,7 @@ client:
   # Which organization does this application instance belong to? The value must be the name of an org
   organization: Org1
   logging:
-    level: debug
+    level: info
 
 
 
