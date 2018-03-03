@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -67,6 +68,8 @@ func (app *Application) UpdateHandler(w http.ResponseWriter, r *http.Request) {
 
 		RequestData, _ := json.Marshal(carData)
 		txid, err := app.Fabric.UpdateCarRecord(carKey, string(RequestData))
+
+		fmt.Println(err)
 
 		if err != nil {
 			http.Error(w, "Unable to update record in the blockchain", 500)
