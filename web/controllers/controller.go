@@ -1,16 +1,21 @@
 package controllers
 
 import (
-	"path/filepath"
-	"os"
 	"fmt"
-	"net/http"
 	"html/template"
+	"net/http"
+	"os"
+	"path/filepath"
+
 	"github.com/servntire/car-ownership/blockchain"
 )
 
 type Application struct {
 	Fabric *blockchain.FabricSetup
+}
+
+func add(x, y int) int {
+	return x + y
 }
 
 func renderTemplate(w http.ResponseWriter, r *http.Request, templateName string, data interface{}) {
@@ -32,14 +37,15 @@ func renderTemplate(w http.ResponseWriter, r *http.Request, templateName string,
 		return
 	}
 
-	resultTemplate, err := template.ParseFiles(tp, lp)
-	if err != nil {
+	funcs := template.FuncMap{"add": add}
+	resultTemplate := template.Must(template.New(templateName).Funcs(funcs).ParseFiles(tp, lp))
+	/*if err != nil {
 		// Log the detailed error
 		fmt.Println(err.Error())
 		// Return a generic "Internal Server Error" message
 		http.Error(w, http.StatusText(500), 500)
 		return
-	}
+	}*/
 	if err := resultTemplate.ExecuteTemplate(w, "layout", data); err != nil {
 		fmt.Println(err.Error())
 		http.Error(w, http.StatusText(500), 500)
