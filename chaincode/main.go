@@ -195,7 +195,7 @@ func (t *HeroesServiceChaincode) invoke(stub shim.ChaincodeStubInterface, args [
 		stub.PutState(args[2], carAsBytes)
 
 		// Notify listeners that an event "eventInvoke" have been executed (check line 19 in the file invoke.go)
-		err = stub.SetEvent("eventInvoke", []byte{})
+		err := stub.SetEvent("eventInvoke", []byte{})
 		if err != nil {
 			return shim.Error(err.Error())
 		}
@@ -215,7 +215,7 @@ func (t *HeroesServiceChaincode) invoke(stub shim.ChaincodeStubInterface, args [
 		stub.PutState(args[2], carAsBytes)
 
 		// Notify listeners that an event "eventInvoke" have been executed (check line 19 in the file invoke.go)
-		err = stub.SetEvent("eventInvoke", []byte{})
+		err := stub.SetEvent("eventInvoke", []byte{})
 		if err != nil {
 			return shim.Error(err.Error())
 		}
@@ -256,7 +256,7 @@ func (s *HeroesServiceChaincode) createcar(stub shim.ChaincodeStubInterface, arg
 	stub.PutState(args[1], carAsBytes)
 
 	// Notify listeners that an event "eventInvoke" have been executed (check line 19 in the file invoke.go)
-	err = stub.SetEvent("eventInvoke", []byte{})
+	err := stub.SetEvent("eventInvoke", []byte{})
 	if err != nil {
 		return shim.Error(err.Error())
 	}

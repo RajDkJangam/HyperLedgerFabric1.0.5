@@ -3,25 +3,26 @@ package main
 import (
 	"fmt"
 	"os"
+
 	"github.com/servntire/car-ownership/blockchain"
-	"github.com/servntire/car-ownership/web/controllers"
 	"github.com/servntire/car-ownership/web"
+	"github.com/servntire/car-ownership/web/controllers"
 )
 
 func main() {
 	// Definition of the Fabric SDK properties
 	fSetup := blockchain.FabricSetup{
 		// Channel parameters
-		ChannelID:        	"chainhero",
-		ChannelConfig:    	"" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/artifacts/",
+		ChannelID:     "chainhero",
+		ChannelConfig: "" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/artifacts/",
 
 		// Chaincode parameters
-		ChainCodeID:      	"heroes-service",
-		ChaincodeGoPath:  	os.Getenv("GOPATH"),
-		ChaincodePath:    	"github.com/servntire/car-ownership/chaincode/",
-		OrgAdmin:			"Admin",
-		OrgName:			"Org1",
-		ConfigFile:			"config.yaml",
+		ChainCodeID:     "heroes-service",
+		ChaincodeGoPath: os.Getenv("GOPATH"),
+		ChaincodePath:   "github.com/servntire/car-ownership/chaincode/",
+		OrgAdmin:        "Admin",
+		OrgName:         "Org1",
+		ConfigFile:      "config.yaml",
 	}
 
 	// Initialization of the Fabric SDK from the previously set properties
