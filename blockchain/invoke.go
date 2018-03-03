@@ -105,11 +105,13 @@ func (setup *FabricSetup) UpdateCarRecord(key, value string) (string, error) {
 	args = append(args, key)
 	args = append(args, value)
 
+	fmt.Println(len(args))
+
 	eventID := "eventInvoke"
 
 	// Add data that will be visible in the proposal, like a description of the invoke request
 	transientDataMap := make(map[string][]byte)
-	transientDataMap["result"] = []byte("Transient data in Create Car invoke")
+	transientDataMap["result"] = []byte("Transient data in Update Car Records invoke")
 
 	// Register a notification handler on the client
 	notifier := make(chan *chclient.CCEvent)
