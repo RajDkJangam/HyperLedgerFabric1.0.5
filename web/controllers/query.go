@@ -33,10 +33,8 @@ func (app *Application) QueryHandler(w http.ResponseWriter, r *http.Request) {
 		ResponseData  CarData
 		TransactionID string
 	}{
-		ResponseData:  data,
-		TransactionID: txnID,
+		ResponseData: data,
 	}
-	returnData.TransactionID = txnID
 
 	fmt.Println("######## ResponseData")
 	fmt.Printf("%v", returnData)
