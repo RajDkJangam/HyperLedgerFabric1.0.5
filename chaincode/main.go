@@ -207,6 +207,7 @@ func (t *HeroesServiceChaincode) invoke(stub shim.ChaincodeStubInterface, args [
 		@@@ Updating all fields of the reord @@@
 	*/
 	if args[1] == "updateRecord" && len(args) == 4 {
+		fmt.Println("Update All")
 		var newCar Car
 		json.Unmarshal([]byte(args[3]), &newCar)
 		var car = Car{Make: newCar.Make, Model: newCar.Model, Colour: newCar.Colour, Owner: newCar.Owner}
