@@ -2,14 +2,15 @@ package blockchain
 
 import (
 	"fmt"
-	"github.com/hyperledger/fabric-sdk-go/pkg/fabsdk"
-	"github.com/hyperledger/fabric-sdk-go/pkg/config"
 	"time"
-	packager "github.com/hyperledger/fabric-sdk-go/pkg/fabric-client/ccpackager/gopackager"
-	resmgmt "github.com/hyperledger/fabric-sdk-go/api/apitxn/resmgmtclient"
-	"github.com/hyperledger/fabric-sdk-go/third_party/github.com/hyperledger/fabric/common/cauthdsl"
-	chmgmt "github.com/hyperledger/fabric-sdk-go/api/apitxn/chmgmtclient"
+
 	"github.com/hyperledger/fabric-sdk-go/api/apitxn/chclient"
+	chmgmt "github.com/hyperledger/fabric-sdk-go/api/apitxn/chmgmtclient"
+	resmgmt "github.com/hyperledger/fabric-sdk-go/api/apitxn/resmgmtclient"
+	"github.com/hyperledger/fabric-sdk-go/pkg/config"
+	packager "github.com/hyperledger/fabric-sdk-go/pkg/fabric-client/ccpackager/gopackager"
+	"github.com/hyperledger/fabric-sdk-go/pkg/fabsdk"
+	"github.com/hyperledger/fabric-sdk-go/third_party/github.com/hyperledger/fabric/common/cauthdsl"
 )
 
 // FabricSetup implementation
@@ -25,8 +26,8 @@ type FabricSetup struct {
 	OrgAdmin        string
 	OrgName         string
 	client          chclient.ChannelClient
-	admin 			resmgmt.ResourceMgmtClient
-	sdk 			*fabsdk.FabricSDK
+	admin           resmgmt.ResourceMgmtClient
+	sdk             *fabsdk.FabricSDK
 }
 
 // Initialize reads the configuration file and sets up the client, chain and event hub
@@ -83,7 +84,6 @@ func (setup *FabricSetup) Initialize() error {
 	return nil
 }
 
-
 func (setup *FabricSetup) InstallAndInstantiateCC() error {
 
 	// Create chaincode package for our chaincode
@@ -93,7 +93,7 @@ func (setup *FabricSetup) InstallAndInstantiateCC() error {
 	}
 
 	// Install our chaincode on org peers
-	installCCReq := resmgmt.InstallCCRequest{Name: setup.ChainCodeID, Path: setup.ChaincodePath, Version: "1.0", Package: ccPkg}
+	installCCReq := resmgmt.InstallCCRequest{Name: setup.ChainCodeID, Path: setup.ChaincodePath, Version: "1.2", Package: ccPkg}
 	_, err = setup.admin.InstallCC(installCCReq)
 	if err != nil {
 		return fmt.Errorf("failed to install cc to org peers %v", err)
