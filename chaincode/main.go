@@ -180,7 +180,7 @@ func (t *HeroesServiceChaincode) invoke(stub shim.ChaincodeStubInterface, args [
 	}
 
 	// Changing Ownership of a Car by Accepting Key and Value
-	if args[1] == "changeOwner" && len(args) == 4 {
+	if args[1] == "changeOwner" && len(args) == 5 {
 
 		/*
 			@@@ Editing Single Field @@@
@@ -206,8 +206,7 @@ func (t *HeroesServiceChaincode) invoke(stub shim.ChaincodeStubInterface, args [
 	/*
 		@@@ Updating all fields of the reord @@@
 	*/
-	fmt.Println(len(args))
-	if args[1] == "updateRecord" && len(args) == 4 {
+	if args[1] == "updateRecord" && len(args) == 5 {
 		fmt.Println("Update All")
 		var newCar Car
 		json.Unmarshal([]byte(args[3]), &newCar)

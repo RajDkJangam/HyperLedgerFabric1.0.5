@@ -105,8 +105,6 @@ func (setup *FabricSetup) UpdateCarRecord(key, value string) (string, error) {
 	args = append(args, key)
 	args = append(args, value)
 
-	fmt.Println(len(args))
-
 	eventID := "eventInvoke"
 
 	// Add data that will be visible in the proposal, like a description of the invoke request
