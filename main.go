@@ -13,11 +13,11 @@ func main() {
 	// Definition of the Fabric SDK properties
 	fSetup := blockchain.FabricSetup{
 		// Channel parameters
-		ChannelID:     "chainhero",
-		ChannelConfig: "" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/artifacts/",
+		ChannelID:     "car-ownership",
+		ChannelConfig: "" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/config/",
 
 		// Chaincode parameters
-		ChainCodeID:      "heroes-service",
+		ChainCodeID:      "carownership-service",
 		ChaincodeGoPath:  os.Getenv("GOPATH"),
 		ChaincodePath:    "github.com/servntire/car-ownership/chaincode/",
 		ChaincodeVersion: "1.16",
