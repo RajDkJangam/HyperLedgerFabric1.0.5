@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"os"
-	"github.com/chainHero/heroes-service/blockchain"
-	"github.com/chainHero/heroes-service/web/controllers"
-	"github.com/chainHero/heroes-service/web"
+	"github.com/servntire/car-ownership/blockchain"
+	"github.com/servntire/car-ownership/web/controllers"
+	"github.com/servntire/car-ownership/web"
 )
 
 func main() {
@@ -13,12 +13,12 @@ func main() {
 	fSetup := blockchain.FabricSetup{
 		// Channel parameters
 		ChannelID:        	"chainhero",
-		ChannelConfig:    	"" + os.Getenv("GOPATH") + "/src/github.com/chainHero/heroes-service/fixtures/artifacts/",
+		ChannelConfig:    	"" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/artifacts/",
 
 		// Chaincode parameters
 		ChainCodeID:      	"heroes-service",
 		ChaincodeGoPath:  	os.Getenv("GOPATH"),
-		ChaincodePath:    	"github.com/chainHero/heroes-service/chaincode/",
+		ChaincodePath:    	"github.com/servntire/car-ownership/chaincode/",
 		OrgAdmin:			"Admin",
 		OrgName:			"Org1",
 		ConfigFile:			"config.yaml",
