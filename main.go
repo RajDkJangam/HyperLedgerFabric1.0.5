@@ -17,12 +17,13 @@ func main() {
 		ChannelConfig: "" + os.Getenv("GOPATH") + "/src/github.com/servntire/car-ownership/fixtures/artifacts/",
 
 		// Chaincode parameters
-		ChainCodeID:     "heroes-service",
-		ChaincodeGoPath: os.Getenv("GOPATH"),
-		ChaincodePath:   "github.com/servntire/car-ownership/chaincode/",
-		OrgAdmin:        "Admin",
-		OrgName:         "Org1",
-		ConfigFile:      "config.yaml",
+		ChainCodeID:      "heroes-service",
+		ChaincodeGoPath:  os.Getenv("GOPATH"),
+		ChaincodePath:    "github.com/servntire/car-ownership/chaincode/",
+		ChaincodeVersion: "1.3",
+		OrgAdmin:         "Admin",
+		OrgName:          "Org1",
+		ConfigFile:       "config.yaml",
 	}
 
 	// Initialization of the Fabric SDK from the previously set properties

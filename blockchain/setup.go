@@ -15,19 +15,20 @@ import (
 
 // FabricSetup implementation
 type FabricSetup struct {
-	ConfigFile      string
-	OrgID           string
-	ChannelID       string
-	ChainCodeID     string
-	initialized     bool
-	ChannelConfig   string
-	ChaincodeGoPath string
-	ChaincodePath   string
-	OrgAdmin        string
-	OrgName         string
-	client          chclient.ChannelClient
-	admin           resmgmt.ResourceMgmtClient
-	sdk             *fabsdk.FabricSDK
+	ConfigFile       string
+	OrgID            string
+	ChannelID        string
+	ChainCodeID      string
+	initialized      bool
+	ChannelConfig    string
+	ChaincodeGoPath  string
+	ChaincodePath    string
+	ChaincodeVersion string
+	OrgAdmin         string
+	OrgName          string
+	client           chclient.ChannelClient
+	admin            resmgmt.ResourceMgmtClient
+	sdk              *fabsdk.FabricSDK
 }
 
 // Initialize reads the configuration file and sets up the client, chain and event hub
@@ -93,7 +94,7 @@ func (setup *FabricSetup) InstallAndInstantiateCC() error {
 	}
 
 	// Install our chaincode on org peers
-	installCCReq := resmgmt.InstallCCRequest{Name: setup.ChainCodeID, Path: setup.ChaincodePath, Version: "1.0", Package: ccPkg}
+	installCCReq := resmgmt.InstallCCRequest{Name: setup.ChainCodeID, Path: setup.ChaincodePath, Version: setup.ChaincodeVersion, Package: ccPkg}
 	_, err = setup.admin.InstallCC(installCCReq)
 	if err != nil {
 		return fmt.Errorf("failed to install cc to org peers %v", err)
@@ -103,7 +104,7 @@ func (setup *FabricSetup) InstallAndInstantiateCC() error {
 	ccPolicy := cauthdsl.SignedByAnyMember([]string{"org1.hf.chainhero.io"})
 
 	// Org resource manager will instantiate our chaincode on the channel
-	err = setup.admin.InstantiateCC(setup.ChannelID, resmgmt.InstantiateCCRequest{Name: setup.ChainCodeID, Path: setup.ChaincodePath, Version: "1.2", Args: [][]byte{[]byte("init")}, Policy: ccPolicy})
+	err = setup.admin.InstantiateCC(setup.ChannelID, resmgmt.InstantiateCCRequest{Name: setup.ChainCodeID, Path: setup.ChaincodePath, Version: setup.ChaincodeVersion, Args: [][]byte{[]byte("init")}, Policy: ccPolicy})
 	if err != nil {
 		return fmt.Errorf("failed to instantiate the chaincode: %v", err)
 	}
