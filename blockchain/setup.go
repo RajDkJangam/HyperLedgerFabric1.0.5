@@ -101,7 +101,7 @@ func (setup *FabricSetup) InstallAndInstantiateCC() error {
 	}
 
 	// Set up chaincode policy
-	ccPolicy := cauthdsl.SignedByAnyMember([]string{"org1.servntire.com"})
+	ccPolicy := cauthdsl.SignedByAnyMember([]string{"Org1MSP"})
 
 	// Org resource manager will instantiate our chaincode on the channel
 	err = setup.admin.InstantiateCC(setup.ChannelID, resmgmt.InstantiateCCRequest{Name: setup.ChainCodeID, Path: setup.ChaincodePath, Version: setup.ChaincodeVersion, Args: [][]byte{[]byte("init")}, Policy: ccPolicy})
