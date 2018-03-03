@@ -56,7 +56,7 @@ func (setup *FabricSetup) ChangeCarOwner(key, value string) (string, error) {
 	// Prepare arguments
 	var args []string
 	args = append(args, "invoke")
-	args = append(args, "invoke")
+	//args = append(args, "invoke")
 	args = append(args, "changeOwner")
 	args = append(args, key)
 	args = append(args, value)
@@ -100,7 +100,7 @@ func (setup *FabricSetup) UpdateCarRecord(key, value string) (string, error) {
 	// Prepare arguments
 	var args []string
 	args = append(args, "invoke")
-	args = append(args, "invoke")
+	//args = append(args, "invoke")
 	args = append(args, "updateRecord")
 	args = append(args, key)
 	args = append(args, value)
