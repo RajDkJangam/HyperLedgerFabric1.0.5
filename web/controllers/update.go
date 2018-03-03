@@ -47,7 +47,7 @@ func (app *Application) UpdateHandler(w http.ResponseWriter, r *http.Request) {
 	if r.FormValue("requested") == "true" {
 		// Retrieving Single Query
 		QueryValue := r.FormValue("carKeySearch")
-		blockData, _, _ := app.Fabric.QueryOne(QueryValue)
+		blockData, _ := app.Fabric.QueryOne(QueryValue)
 		var queryResponse Car
 		json.Unmarshal([]byte(blockData), &queryResponse)
 		returnData.TransactionRequested = "false"
